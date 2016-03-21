@@ -11,4 +11,14 @@ async function test() {
 	}
 }
 
-test();
+// Doesn't catch :(
+try {
+	test();
+} catch (e) {
+	console.log("Sync catch", e);
+}
+
+// Does catch
+test().catch(e => {
+	console.log("Promise .catch", e);
+});
